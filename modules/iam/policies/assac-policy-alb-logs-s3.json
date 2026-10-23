@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowS3ForALBAccessLogs",
+      "Effect": "Allow",
+      "Action": [
+        "s3:CreateBucket",
+        "s3:GetBucketPolicy",
+        "s3:PutBucketPolicy",
+        "s3:GetBucketAcl",
+        "s3:PutBucketAcl",
+        "s3:GetBucketLocation",
+        "s3:ListBucket",
+        "s3:PutObject",
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::assac-logs-ACCOUNT_ID",
+        "arn:aws:s3:::assac-logs-ACCOUNT_ID/*"
+      ]
+    }
+  ]
+}

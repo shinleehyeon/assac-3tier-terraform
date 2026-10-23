@@ -1,0 +1,31 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:BatchGetImage",
+        "ecr:PutImage",
+        "ecr:InitiateLayerUpload",
+        "ecr:UploadLayerPart",
+        "ecr:CompleteLayerUpload"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "autoscaling:StartInstanceRefresh",
+      "Resource": [
+        "arn:aws:autoscaling:ap-northeast-2:ACCOUNT_ID:autoScalingGroup:*:autoScalingGroupName/assac-asg-was",
+        "arn:aws:autoscaling:ap-northeast-2:ACCOUNT_ID:autoScalingGroup:*:autoScalingGroupName/assac-asg-web"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "autoscaling:DescribeInstanceRefreshes",
+      "Resource": "*"
+    }
+  ]
+}

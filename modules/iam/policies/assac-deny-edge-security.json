@@ -1,0 +1,19 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyOtherDomains",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:*Vpc*",
+        "ec2:*Subnet*",
+        "ec2:*RouteTable*",
+        "ec2:RunInstances",
+        "ec2:TerminateInstances",
+        "rds:*",
+        "ecr:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

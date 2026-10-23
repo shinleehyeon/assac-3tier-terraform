@@ -1,0 +1,15 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowPricingForRDS",
+      "Effect": "Allow",
+      "Action": [
+        "pricing:GetProducts",
+        "pricing:DescribeServices",
+        "pricing:GetAttributeValues"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

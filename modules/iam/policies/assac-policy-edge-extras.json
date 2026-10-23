@@ -1,0 +1,160 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCreateServiceLinkedRoleForCloudFront",
+      "Effect": "Allow",
+      "Action": "iam:CreateServiceLinkedRole",
+      "Resource": "arn:aws:iam::*:role/aws-service-role/*",
+      "Condition": {
+        "StringEquals": {
+          "iam:AWSServiceName": "cloudfront.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "AllowLambdaServiceRoleManagement",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:AttachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:PassRole",
+        "iam:GetRole",
+        "iam:TagRole"
+      ],
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/service-role/assac-lambda-*"
+    },
+    {
+      "Sid": "AllowAcmFullAccess",
+      "Effect": "Allow",
+      "Action": "acm:*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowEventBridgeRuleManagement",
+      "Effect": "Allow",
+      "Action": [
+        "events:PutRule",
+        "events:PutTargets",
+        "events:RemoveTargets",
+        "events:DeleteRule",
+        "events:DescribeRule",
+        "events:ListTargetsByRule",
+        "events:EnableRule",
+        "events:DisableRule",
+        "events:TagResource"
+      ],
+      "Resource": "arn:aws:events:ap-northeast-2:ACCOUNT_ID:rule/assac-*"
+    },
+    {
+      "Sid": "AllowEventBridgeDiscovery",
+      "Effect": "Allow",
+      "Action": [
+        "events:ListEventBuses",
+        "events:DescribeEventBus"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowEventBridgeListRules",
+      "Effect": "Allow",
+      "Action": "events:ListRules",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowLambdaPermissionForEventBridge",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:AddPermission",
+        "lambda:RemovePermission",
+        "lambda:GetPolicy",
+        "lambda:GetFunction"
+      ],
+      "Resource": "arn:aws:lambda:ap-northeast-2:ACCOUNT_ID:function:assac-lambda-*"
+    },
+    {
+      "Sid": "AllowLambdaListFunctions",
+      "Effect": "Allow",
+      "Action": "lambda:ListFunctions",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowEventBridgeInvokeLambdaRoleManagement",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:PutRolePolicy",
+        "iam:AttachRolePolicy",
+        "iam:GetRole",
+        "iam:PassRole",
+        "iam:TagRole"
+      ],
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/service-role/Amazon_EventBridge_Invoke_Lambda_*"
+    },
+    {
+      "Sid": "AllowEventBridgeInvokeLambdaPolicyManagement",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreatePolicy",
+        "iam:GetPolicy",
+        "iam:GetPolicyVersion",
+        "iam:ListPolicyVersions",
+        "iam:CreatePolicyVersion",
+        "iam:TagPolicy"
+      ],
+      "Resource": [
+        "arn:aws:iam::ACCOUNT_ID:policy/Amazon_EventBridge_Invoke_Lambda_*",
+        "arn:aws:iam::ACCOUNT_ID:policy/service-role/Amazon_EventBridge_Invoke_Lambda_*"
+      ]
+    },
+    {
+      "Sid": "AllowSnsSubscribeForAsgAlert",
+      "Effect": "Allow",
+      "Action": [
+        "sns:Subscribe",
+        "sns:GetTopicAttributes",
+        "sns:ListSubscriptionsByTopic"
+      ],
+      "Resource": [
+        "arn:aws:sns:ap-northeast-2:ACCOUNT_ID:assac-sns-asg-alert",
+        "arn:aws:sns:ap-northeast-2:ACCOUNT_ID:assac-sns-critical-alert"
+      ]
+    },
+    {
+      "Sid": "AllowResourceGroupsSearchAndTagEditor",
+      "Effect": "Allow",
+      "Action": [
+        "resource-groups:SearchResources",
+        "resource-groups:ListGroupResources",
+        "tag:GetResources",
+        "tag:GetTagKeys",
+        "tag:GetTagValues"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowCloudWatchAlarmManagement",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:PutMetricAlarm",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:DeleteAlarms",
+        "cloudwatch:SetAlarmState"
+      ],
+      "Resource": "arn:aws:cloudwatch:ap-northeast-2:ACCOUNT_ID:alarm:assac-alarm-*"
+    },
+    {
+      "Sid": "AllowCloudShellAccess",
+      "Effect": "Allow",
+      "Action": [
+        "cloudshell:CreateEnvironment",
+        "cloudshell:CreateSession",
+        "cloudshell:GetEnvironmentStatus",
+        "cloudshell:StartEnvironment",
+        "cloudshell:PutCredentials"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

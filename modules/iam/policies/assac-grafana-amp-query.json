@@ -1,0 +1,16 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowGrafanaAmpQuery",
+      "Effect": "Allow",
+      "Action": [
+        "aps:QueryMetrics",
+        "aps:GetMetricMetadata",
+        "aps:GetSeries",
+        "aps:GetLabels"
+      ],
+      "Resource": "arn:aws:aps:ap-northeast-2:ACCOUNT_ID:workspace/ws-d018c13f-f9be-4368-a3fd-a91c36c04b60"
+    }
+  ]
+}

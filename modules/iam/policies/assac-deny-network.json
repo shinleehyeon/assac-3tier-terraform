@@ -1,0 +1,19 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyOtherDomains",
+      "Effect": "Deny",
+      "Action": [
+        "rds:*",
+        "secretsmanager:*",
+        "guardduty:*",
+        "route53:*",
+        "wafv2:*",
+        "budgets:*",
+        "ce:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

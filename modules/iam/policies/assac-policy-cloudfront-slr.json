@@ -1,0 +1,106 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCreateServiceLinkedRoleForCloudFront",
+      "Effect": "Allow",
+      "Action": "iam:CreateServiceLinkedRole",
+      "Resource": "arn:aws:iam::*:role/aws-service-role/*",
+      "Condition": {
+        "StringEquals": {
+          "iam:AWSServiceName": "cloudfront.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "AllowLambdaServiceRoleManagement",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:AttachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:PassRole",
+        "iam:TagRole"
+      ],
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/service-role/assac-lambda-*"
+    },
+    {
+      "Sid": "AllowDescribeCloudWatchLogGroups",
+      "Effect": "Allow",
+      "Action": "logs:DescribeLogGroups",
+      "Resource": "arn:aws:logs:ap-northeast-2:ACCOUNT_ID:log-group:*"
+    },
+    {
+      "Sid": "AllowCreateCloudWatchServiceRoles",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:PutRolePolicy",
+        "iam:AttachRolePolicy",
+        "iam:PassRole",
+        "iam:TagRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::ACCOUNT_ID:role/assac-*-cw-role",
+        "arn:aws:iam::ACCOUNT_ID:role/service-role/assac-*-cw-role"
+      ]
+    },
+    {
+      "Sid": "AllowResourceGroupsSearchAndTagEditor",
+      "Effect": "Allow",
+      "Action": [
+        "resource-groups:SearchResources",
+        "resource-groups:ListGroupResources",
+        "tag:GetResources",
+        "tag:GetTagKeys",
+        "tag:GetTagValues"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowIamReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "iam:Get*",
+        "iam:List*",
+        "iam:GenerateCredentialReport",
+        "iam:GenerateServiceLastAccessedDetails",
+        "iam:SimulateCustomPolicy",
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowPassRoleForAssacRoles",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/assac-*"
+    },
+    {
+      "Sid": "AllowSSMSessionManager",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:DescribeSessions",
+        "ssm:GetConnectionStatus",
+        "ssm:DescribeInstanceInformation",
+        "ssm:DescribeInstanceProperties",
+        "ssm:ListTagsForResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowSSMStartSession",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:StartSession",
+        "ssm:ResumeSession",
+        "ssm:TerminateSession"
+      ],
+      "Resource": [
+        "arn:aws:ec2:ap-northeast-2:ACCOUNT_ID:instance/*",
+        "arn:aws:ssm:ap-northeast-2:ACCOUNT_ID:document/SSM-SessionManagerRunShell",
+        "arn:aws:ssm:*:*:session/${aws:username}-*"
+      ]
+    }
+  ]
+}

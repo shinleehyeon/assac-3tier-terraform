@@ -1,0 +1,15 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowKMSForRDS",
+      "Effect": "Allow",
+      "Action": [
+        "kms:ListKeys",
+        "kms:ListAliases",
+        "kms:DescribeKey"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

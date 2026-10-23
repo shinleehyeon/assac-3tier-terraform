@@ -1,0 +1,20 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowListInstanceProfiles",
+      "Effect": "Allow",
+      "Action": "iam:ListInstanceProfiles",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowGetAndPassCloudWatchAgentRole",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetInstanceProfile",
+        "iam:PassRole"
+      ],
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/assac-role-cloudwatch-agent"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyOtherDomains",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:*Vpc*",
+        "ec2:*Subnet*",
+        "ec2:*RouteTable*",
+        "ec2:*SecurityGroup*",
+        "rds:Delete*",
+        "rds:Modify*",
+        "iam:*",
+        "route53:*",
+        "cloudfront:*",
+        "wafv2:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

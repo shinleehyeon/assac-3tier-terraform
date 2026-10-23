@@ -1,0 +1,11 @@
+# 값은 예시이다. 실제 값은 저장소에 커밋하지 않는다.
+web_ami_id     = "ami-xxxxxxxxxxxxxxxxx"
+was_ami_id     = "ami-xxxxxxxxxxxxxxxxx"
+bastion_ami_id = "ami-xxxxxxxxxxxxxxxxx"
+
+admin_ssh_cidrs = ["203.0.113.10/32"]
+alert_emails    = ["ops@example.com"]
+
+db_master_password     = "change-me"
+load_test_header_value = "change-me"
+github_repo = "your-org/your-repo"
