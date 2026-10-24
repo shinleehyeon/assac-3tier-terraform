@@ -26,7 +26,7 @@
 
 Spring PetClinic을 Web, WAS, DB 3계층으로 나누어 AWS에 구축했습니다. 각 계층은 서브넷과 보안 그룹으로 분리했고, 앞단에는 CloudFront와 WAF를 두었습니다.
 
-콘솔에서 먼저 구축한 리소스를 `import`로 가져와 Terraform 코드로 전환했습니다. 상태 파일은 S3 백엔드에 저장하고 `use_lockfile`로 동시 실행을 막습니다. 프로젝트 종료 후 AWS 리소스는 모두 정리했습니다.
+콘솔에서 먼저 구축한 리소스를 `import`로 가져와 Terraform 코드로 전환했습니다. 상태 파일은 S3 백엔드에 저장하고 `use_lockfile`로 동시 실행을 막습니다.
 
 ## 시연 영상
 
