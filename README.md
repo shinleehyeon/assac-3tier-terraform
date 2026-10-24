@@ -73,5 +73,3 @@ Spring PetClinic을 Web, WAS, DB 3계층으로 나누어 AWS에 구축했습니�
 terraform init
 terraform plan
 ```
-
-> 이 저장소는 기록용입니다. 대상 AWS 리소스는 이미 삭제되어 있어, `apply`를 실행하면 리소스가 새로 만들어지고 비용이 발생합니다.# assac-3tier-terraform
